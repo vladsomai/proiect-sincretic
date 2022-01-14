@@ -51,32 +51,7 @@ export default async function handler(
       console.log("Client asks for data");
       sqlCommand = "select * from Lista_produse_comanda";
       break;
-
-    case "insertProject":
-      console.log("Client asks to insert a project");
-      sqlCommand = `call insertProject("${reqJSON.project_name}", ${reqJSON.adapter_code}, "${reqJSON.fixture_type}", "${reqJSON.owner_email}", ${reqJSON.contacts_limit}, ${reqJSON.warning_at}, "${reqJSON.modified_by}");`;
-      break;
-
-    case "resetCounter":
-      console.log("Client asks to reset counter of a project");
-      sqlCommand = `call resetCounter(${reqJSON.adapter_code}, "${reqJSON.fixture_type}", "${reqJSON.modified_by}");`;
-      break;
-
-    case "deleteProject":
-      console.log("Client asks to delete a project");
-      sqlCommand = `call deleteProject(${reqJSON.adapter_code}, "${reqJSON.fixture_type}");`;
-      break;
-
-    case "updateOwner":
-      console.log("Client asks to update owner email");
-      sqlCommand = `call updateEmail(${reqJSON.adapter_code}, "${reqJSON.fixture_type}", "${reqJSON.owner_email}", "${reqJSON.modified_by}");`;
-      break;
-
-    case "updateContactsLimitAndWarning":
-      console.log("Client asks to update contacts limit and warning");
-      sqlCommand = `call updateLimitWarning(${reqJSON.adapter_code}, "${reqJSON.fixture_type}", ${reqJSON.contacts_limit},${reqJSON.warning_at} ,"${reqJSON.modified_by}");`;
-      break;
-
+      
     default:
       console.log("Client asks for an unknown commad");
       sqlCommand = "";
